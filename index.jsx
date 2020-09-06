@@ -9,7 +9,7 @@ import {
   bgBrightPink,
 } from "./lib/styles";
 
-export const refreshFrequency = 10000;
+export const refreshFrequency = 15000;
 
 export const command = async (dispatch) => {
   const promises = [
@@ -57,7 +57,7 @@ export const render = ({
     <div className={bgPurple}>{workspace}</div>
     <div className={bgNone}>{process}</div>
     <div className={flexSeparator} />
-    <div className={bgNone}>{mail > 0 ? `\uf0e0 \u00a0${mail}` : ""}</div>
+    {mail > 0 ? <div className={bgNone}>{`\uf0e0 \u00a0${mail}`}</div> : null}
     <div className={bgDarkPink}>{netstat}</div>
     <div className={bgPink}>{battery}</div>
     <div className={bgBrightPink}>{datetime}</div>
