@@ -31,6 +31,8 @@ To modify fonts or colours, edit the CSS definitions in the `lib/styles.js` file
 
 It's easy to add new components by writing a new script, adding it to the Promise array in `index.jsx` and then creating a new component for it in the `render` function.
 
+The default fonts are ligaturized [IBM Plex Mono](https://www.ibm.com/plex/) and the [Nerd Fonts](https://www.nerdfonts.com/font-downloads) version of [Droid Sans Mono](https://fonts.google.com/?query=droid+sans+mono) for glyphs. You can find current versions of both in my [dotfiles repo](https://github.com/ranmaru22/dotfiles/tree/master/fonts), or change the fonts in `lib/styles.js` to whatever you like.
+
 ## Notes
 
 The mail script only works while Mail.app is running. Without this check, Übersicht would constantly launch Mail.app to check for new messages, which is annoying. It uses the count of the universal inbox. You can change this behaviour by editing the script as follows if you only want to return the unread count of a specific mailbox or a specific account.
@@ -41,6 +43,6 @@ return the unread count of mailbox "INBOX" of account "My Account"
 
 This should also work with other mail applications, as long as they properly interface with AppleScript.
 
-## License
+## Licence
 
 Free and open source under GPLv3. Feel free to share and modify to your heart's content.
