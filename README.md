@@ -31,6 +31,16 @@ To modify fonts or colours, edit the CSS definitions in the `lib/styles.js` file
 
 It's easy to add new components by writing a new script, adding it to the Promise array in `index.jsx` and then creating a new component for it in the `render` function.
 
+## Notes
+
+The mail script only works while Mail.app is running. Without this check, Übersicht would constantly launch Mail.app to check for new messages, which is annoying. It uses the count of the universal inbox. You can change this behaviour by editing the script as follows if you only want to return the unread count of a specific mailbox or a specific account.
+
+```applescript
+return the unread count of mailbox "INBOX" of account "My Account"
+```
+
+This should also work with other mail applications, as long as they properly interface with AppleScript.
+
 ## License
 
 Free and open source under GPLv3. Feel free to share and modify to your heart's content.
