@@ -39,7 +39,9 @@ export const updateState = (action, state) => {
 
 export const render = (data) => (
   <div className={container}>
-    <div className={bg.purple}>{data.workspace}</div>
+    <div className={bg.purple}>
+      <strong>{data.workspace}</strong>
+    </div>
     <div className={bg.none}>{data.process}</div>
     <div className={flexSeparator} />
     {data.mail > 0 && (
