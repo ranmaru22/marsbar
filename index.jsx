@@ -1,13 +1,5 @@
 import { run } from "uebersicht";
-import {
-  container,
-  flexSeparator,
-  bgNone,
-  bgPurple,
-  bgDarkPink,
-  bgPink,
-  bgBrightPink,
-} from "./lib/styles";
+import { container, flexSeparator, bg } from "./lib/styles";
 
 export const refreshFrequency = 15000;
 
@@ -45,21 +37,16 @@ export const updateState = (action, state) => {
   }
 };
 
-export const render = ({
-  workspace,
-  process,
-  mail,
-  netstat,
-  battery,
-  datetime,
-}) => (
+export const render = (data) => (
   <div className={container}>
-    <div className={bgPurple}>{workspace}</div>
-    <div className={bgNone}>{process}</div>
+    <div className={bg.purple}>{data.workspace}</div>
+    <div className={bg.none}>{data.process}</div>
     <div className={flexSeparator} />
-    {mail > 0 ? <div className={bgNone}>{`\uf0e0 \u00a0${mail}`}</div> : null}
-    <div className={bgDarkPink}>{netstat}</div>
-    <div className={bgPink}>{battery}</div>
-    <div className={bgBrightPink}>{datetime}</div>
+    {data.mail > 0 && (
+      <div className={bg.none}>{`\uf0e0 \u00a0${data.mail}`}</div>
+    )}
+    <div className={bg.darkPink}>{data.netstat}</div>
+    <div className={bg.pink}>{data.battery}</div>
+    <div className={bg.brightPink}>{data.datetime}</div>
   </div>
 );
