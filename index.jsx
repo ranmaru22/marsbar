@@ -12,12 +12,14 @@ import {
 export const refreshFrequency = 10000;
 
 export const command = async (dispatch) => {
-  const pWorkspace = run("marsbar/scripts/workspace.sh");
-  const pProcess = run("marsbar/scripts/process.sh");
-  const pMail = run("marsbar/scripts/mail.scpt");
-  const pNetstat = run("marsbar/scripts/netstat.sh");
-  const pBattery = run("marsbar/scripts/battery.sh");
-  const pDatetime = run("marsbar/scripts/datetime.sh");
+  const promises = [
+    run("marsbar/scripts/workspace.sh"),
+    run("marsbar/scripts/process.sh"),
+    run("marsbar/scripts/mail.scpt"),
+    run("marsbar/scripts/netstat.sh"),
+    run("marsbar/scripts/battery.sh"),
+    run("marsbar/scripts/datetime.sh"),
+  ];
   const [
     workspace,
     process,
@@ -25,14 +27,7 @@ export const command = async (dispatch) => {
     netstat,
     battery,
     datetime,
-  ] = await Promise.all([
-    pWorkspace,
-    pProcess,
-    pMail,
-    pNetstat,
-    pBattery,
-    pDatetime,
-  ]);
+  ] = await Promise.all(promises);
 
   dispatch({
     type: "UPDATE",
