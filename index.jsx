@@ -4,14 +4,6 @@ import { container, flexSeparator, bg } from "./lib/styles";
 export const refreshFrequency = 15000;
 
 export const command = async (dispatch) => {
-  const promises = [
-    run("marsbar/scripts/workspace.sh"),
-    run("marsbar/scripts/process.sh"),
-    run("marsbar/scripts/mail.scpt"),
-    run("marsbar/scripts/netstat.sh"),
-    run("marsbar/scripts/battery.sh"),
-    run("marsbar/scripts/datetime.sh"),
-  ];
   const [
     workspace,
     process,
@@ -19,7 +11,14 @@ export const command = async (dispatch) => {
     netstat,
     battery,
     datetime,
-  ] = await Promise.all(promises);
+  ] = await Promise.all([
+    run("marsbar/scripts/workspace.sh"),
+    run("marsbar/scripts/process.sh"),
+    run("marsbar/scripts/mail.scpt"),
+    run("marsbar/scripts/netstat.sh"),
+    run("marsbar/scripts/battery.sh"),
+    run("marsbar/scripts/datetime.sh"),
+  ]);
 
   dispatch({
     type: "UPDATE",
