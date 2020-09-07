@@ -35,6 +35,8 @@ The default fonts are ligaturized [IBM Plex Mono](https://www.ibm.com/plex/) and
 
 ## Notes
 
+### Mail script
+
 The mail script only works while Mail.app is running. Without this check, Übersicht would constantly launch Mail.app to check for new messages, which is annoying. It uses the count of the universal inbox. You can change this behaviour by editing the script as follows if you only want to return the unread count of a specific mailbox or a specific account.
 
 ```applescript
@@ -42,6 +44,12 @@ return the unread count of mailbox "INBOX" of account "My Account"
 ```
 
 This should also work with other mail applications, as long as they properly interface with AppleScript.
+
+### Music script
+
+The music script is very hacky for songs that are not in your library (e.g. radio streams or playing from Apple Music without adding it to your library first), because for some reason Music.app does not return a well-behaved object of which AppleScript can access the fields. The workaround is to actually extract the string from the GUI that shows in the now-playing area.
+
+This only works when there is a window that System Events can read from, though. So if you close the window with the red button, even when a song is still playing, the script will not return anything. You can minimize or hide the window, though.
 
 ## Licence
 
