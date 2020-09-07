@@ -8,9 +8,9 @@ if application "Music" is running
                 set trackName to name of current track
                 set artistName to artist of current track
                 return artistName & " - " & trackName
-            on error number -1728
+            on error
                 -- when streaming from Apple Music, the above script doesn't work because iTunes doesn't return
-                -- a proper object with the correct fields. So here come's the hacky solution ...
+                -- a proper object with the correct fields. So here comes the hacky solution ...
                 tell application "System Events"
                     tell process "Music"
                         try
@@ -20,15 +20,14 @@ if application "Music" is running
                             set containingTrack to item 2 of static texts of staticTexts
                             set trackName to name of item 1 of containingTrack
 
-                            -- artist and album are shown as one item. Change the default split from space to " - "
-                            -- so the text can be split into artist and album
+                            -- split the text element that shows artist and album title
                             set artistAndAlbum to name of item 1 of containingArtistAlbum
                             set tid to text item delimiters of AppleScript
                             set text item delimiters of AppleScript to {" — "}
                             set artistSplit to text items of artistAndAlbum
                             set text item delimiters of AppleScript to tid
 
-                            -- get artist and album out of the array
+                            -- get artist name out of the array
                             set artistName to item 1 of artistSplit
                             return artistName & " - " & trackName
                         on error
