@@ -31,7 +31,7 @@ To modify fonts or colours, edit the CSS definitions in the `lib/styles.js` file
 
 It's easy to add new components by writing a new script, adding it to the Promise array in `index.jsx` and then creating a new component for it in the `render` function.
 
-The default fonts are ligaturized [IBM Plex Mono](https://www.ibm.com/plex/) and the [Nerd Fonts](https://www.nerdfonts.com/font-downloads) version of [Droid Sans Mono](https://fonts.google.com/?query=droid+sans+mono) for glyphs. You can find current versions of both in my [dotfiles repo](https://github.com/ranmaru22/dotfiles/tree/master/fonts), or change the fonts in `lib/styles.js` to whatever you like.
+The default fonts are ligaturized [IBM Plex Mono](https://www.ibm.com/plex/) and the [Nerd Fonts](https://www.nerdfonts.com/font-downloads) version of [Droid Sans Mono](https://fonts.google.com/?query=droid+sans+mono) for glyphs. You can find current versions of both in my [dotfiles repo](https://github.com/ranmaru22/dotfiles/tree/master/fonts)(the IBM Plex Variant is called _LigaLex_ to conform with its licence), or change the fonts in `lib/styles.js` to whatever you like.
 
 ## Notes
 
